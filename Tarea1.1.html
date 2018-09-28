@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Calculadora para niños</title>
+<style type="text/css">
+ body{
+        
+        background-color:orange;
+       ;
+        border-color:black;
+
+        font: oblique bold 120% cursive;
+        font-size:20px;
+        color: white;
+
+      }
+     #corin{
+      width:500px;
+     } 
+
+      </style>
+
+
+
+    </style>   
+
+
+    </head>
+    <body onload="nuevaoperacion()">
+        <h1>Calculadora Infantil</h1>
+
+        <h2>Introduce tu operación</h2>
+   
+        Primer numero: <input type="text" id="primerDigito"><br><br><br> 
+        
+         
+         Operación: 
+	 	     <select id="operacion">
+	     	<option>+</option>
+	     	<option>-</option>
+	     	<option>*</option>
+	     	<option>/</option>
+	     </select>
+                 <br><br><br>
+        Segundo numero:<input type="text" id="segundoDigito"> <br><br><br>
+
+		Resultado:<input type="text" id="misolucion"><br><br><br> 
+              
+              <input type="button" onclick="comprobar()" value="Comprobar">
+              <input type="button" onclick="nuevaoperacion() & location.reload()" value="Nueva operacion">
+
+      <input type="text" id="corin">
+
+
+
+      <script>
+
+ //operaciones basicas
+//--------------------------SUMA---------------------------------
+
+        function suma(primerDigito,segundoDigito){
+        	var primerDigito= parseInt(document.getElementById("primerDigito").value);
+              var segundoDigito = parseInt(document.getElementById("segundoDigito").value);
+                suma= primerDigito+segundoDigito;
+                return suma;
+            }
+
+ //--------------------------RESTA-----------------------------           
+function resta(primerDigito,segundoDigito){
+        	var primerDigito= parseInt(document.getElementById("primerDigito").value);
+              var segundoDigito = parseInt(document.getElementById("segundoDigito").value);
+                resta= primerDigito-segundoDigito;
+
+                return resta;
+            }
+
+//----------------------DIVISION---------------------------------            
+function division(primerDigito,segundoDigito){
+        	var primerDigito= parseInt(document.getElementById("primerDigito").value);
+              var segundoDigito = parseInt(document.getElementById("segundoDigito").value);
+                division= primerDigito/segundoDigito;
+                return division;
+            }
+//--------------------MULTIPLICACION ------------------------
+
+ function multiplicacion(primerDigito,segundoDigito){
+        	var primerDigito= parseInt(document.getElementById("primerDigito").value);
+              var segundoDigito = parseInt(document.getElementById("segundoDigito").value);
+                multiplicacion= primerDigito*segundoDigito;
+                return multiplicacion;
+            }
+
+function comprobar (){
+			var primerDigito= parseInt(document.getElementById("primerDigito").value);
+              var segundoDigito = parseInt(document.getElementById("segundoDigito").value);
+              var misolucion = parseInt(document.getElementById("misolucion").value);
+              var operacion= document.getElementById("operacion").value
+
+      if(operacion=="+"){
+      	if(misolucion==(suma(primerDigito,segundoDigito))){
+
+         document.getElementById("corin").value = "CORRECTO";  
+
+      	}
+      	else {  document.getElementById("corin").value = ( "INCORRECTO EL RESULTADO ES: "+ suma);;  
+
+      	}
+      }
+
+      if(operacion=="-"){
+      	if(misolucion==resta(primerDigito,segundoDigito)){
+         document.getElementById("corin").value = "CORRECTO";  
+      	}
+      	else {document.getElementById("corin").value = ( "INCORRECTO EL RESULTADO ES: "+ resta);
+      	}
+      }
+
+      if(operacion=="*"){
+      	if(misolucion==multiplicacion(primerDigito,segundoDigito)){
+         document.getElementById("corin").value = "CORRECTO";  
+      	}
+      	else {document.getElementById("corin").value = ( "INCORRECTO EL RESULTADO ES: "+ multiplicacion);
+      	}
+      }
+
+      if(operacion=="/"){
+      	if(misolucion==division(primerDigito,segundoDigito)){
+         document.getElementById("corin").value = "CORRECTO";  
+      	}
+      	else {document.getElementById("corin").value =( "INCORRECTO EL RESULTADO ES: "+ division);
+      	}
+      }
+}
+
+ function nuevaoperacion (){
+      
+
+      document.getElementById("primerDigito").value = "";  
+      document.getElementById("segundoDigito").value = ""; 
+      document.getElementById("operacion").value = "+";
+      document.getElementById("misolucion").value = "";  
+      document.getElementById("corin").value = "";  
+
+
+
+
+
+      }
+
+
+ </script> 
+    </body>
+</html>
