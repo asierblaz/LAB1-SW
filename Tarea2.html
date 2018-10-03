@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Calculadora para niños</title>
+<style type="text/css">
+ body{
+        
+        background-color:#9000b9;
+        border-color:black;
+
+        font: oblique bold 120% cursive;
+        font-size:20px;
+        color: white;
+
+      }
+#correcto{
+   color: #20de77;
+   font-size: 38px;
+text-align: center;   
+}
+
+#incorrecto{
+   color: #de3d20;
+   font-size: 38px;
+text-align: center;   
+}
+    </style>   
+
+
+    </head>
+    <body>
+        <h1>Calculadora Infantil</h1>
+
+        <h2>Introduce tu operacion</h2>
+   
+        Primer numero: <input type="text" id="primerDigito"><br><br><br> 
+        
+         
+         Operacion: 
+	 	     <select id="operacion">
+	     	<option>+</option>
+	     	<option>-</option>
+	     	<option>*</option>
+	     	<option>/</option>
+	     </select>
+                <br>
+      <div id="correcto"></div>
+      <div id="incorrecto"></div><br>
+        Segundo numero:<input type="text" id="segundoDigito"> <br><br><br>
+
+		Resultado:<input type="text" id="misolucion"><br><br> 
+              
+              <input type="button" id="comprobar" value="Comprobar">
+              <input type="button" id="nuevaoperacion" value="Nueva operacion">
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+<script>
+
+  $("#comprobar").click(function(){
+
+// function comprobar
+     $("#correcto").text("");
+     $("#incorrecto").text("");
+    var $primerDigito = parseInt($("#primerDigito").val());
+    var $segundoDigito = parseInt($("#segundoDigito").val());
+    var $misolucion = parseInt($("#misolucion").val());
+    var $operacion = $("#operacion").val();
+    var resultop = 0;
+
+    //si es suma
+
+    if ($operacion == "+"){
+      resultop = $primerDigito+$segundoDigito;
+       if($misolucion== resultop) $("#correcto").text("Correcto!!");
+       else $("#incorrecto").text("Incorrecto!!");
+     }
+//resta
+        if ($operacion == "-"){
+      resultop = $primerDigito-$segundoDigito;
+       if($misolucion== resultop) $("#correcto").text("Correcto!!");
+       else $("#incorrecto").text("Incorrecto!!");
+     }
+
+//multiplicacion
+
+   if ($operacion == "*"){
+      resultop = $primerDigito*$segundoDigito;
+       if($misolucion== resultop) $("#correcto").text("Correcto!!");
+       else $("#incorrecto").text("Incorrecto!!");
+     }
+
+//division
+        if ($operacion == "/"){
+      resultop = $primerDigito/$segundoDigito;
+       if($misolucion== resultop) $("#correcto").text("Correcto!!");
+       else $("#incorrecto").text("Incorrecto!!");
+     }
+
+  })
+
+  $("#nuevaoperacion").click(function(){
+
+     $("#correcto").text("");
+     $("#incorrecto").text("");
+  $("#primerDigito").val("");   
+  $("#segundoDigito").val("");
+  $("#operacion").val("+");
+  $("#misolucion").val("");   
+  })
+  
+</script>
+
+
+    </body>
+</html>
