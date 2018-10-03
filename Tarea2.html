@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Calculadora para niños</title>
+        <title>Calculadora para ni�os</title>
 <style type="text/css">
  body{
         
@@ -30,12 +30,12 @@
     <body onload="nuevaoperacion()">
         <h1>Calculadora Infantil</h1>
 
-        <h2>Introduce tu operación</h2>
+        <h2>Introduce tu operacion</h2>
    
         Primer numero: <input type="text" id="primerDigito"><br><br><br> 
         
          
-         Operación: 
+         Operacion: 
 	 	     <select id="operacion">
 	     	<option>+</option>
 	     	<option>-</option>
@@ -50,13 +50,13 @@
               <input type="button" onclick="comprobar()" value="Comprobar">
               <input type="button" onclick="nuevaoperacion() & location.reload()" value="Nueva operacion">
 
-      <input type="text" readonly id="corin">
+      <input type="text" id="corin">
 
-
+<
 
       <script>
 
- //operaciones basicas
+ /*operaciones basicas
 //--------------------------SUMA---------------------------------
 
         function suma(primerDigito,segundoDigito){
@@ -141,12 +141,9 @@ function comprobar (){
       document.getElementById("operacion").value = "+";
       document.getElementById("misolucion").value = "";  
       document.getElementById("corin").value = "";  
-
-
-
-
-
       }
+
+      
 
 
  </script> 
