@@ -7,7 +7,6 @@
  body{
         
         background-color:#9000b9;
-       ;
         border-color:black;
 
         font: oblique bold 120% cursive;
@@ -15,19 +14,22 @@
         color: white;
 
       }
-     #corin{
-      width:500px;
-     } 
+#correcto{
+   color: #20de77;
+   font-size: 38px;
+text-align: center;   
+}
 
-      </style>
-
-
-
+#incorrecto{
+   color: #de3d20;
+   font-size: 38px;
+text-align: center;   
+}
     </style>   
 
 
     </head>
-    <body onload="nuevaoperacion()">
+    <body>
         <h1>Calculadora Infantil</h1>
 
         <h2>Introduce tu operacion</h2>
@@ -42,110 +44,79 @@
 	     	<option>*</option>
 	     	<option>/</option>
 	     </select>
-                 <br><br><br>
+                <br>
+      <div id="correcto"></div>
+      <div id="incorrecto"></div><br>
         Segundo numero:<input type="text" id="segundoDigito"> <br><br><br>
 
-		Resultado:<input type="text" id="misolucion"><br><br><br> 
+		Resultado:<input type="text" id="misolucion"><br><br> 
               
-              <input type="button" onclick="comprobar()" value="Comprobar">
-              <input type="button" onclick="nuevaoperacion() & location.reload()" value="Nueva operacion">
-
-      <input type="text" id="corin">
-
-<
-
-      <script>
-
- /*operaciones basicas
-//--------------------------SUMA---------------------------------
-
-        function suma(primerDigito,segundoDigito){
-        	var primerDigito= parseInt(document.getElementById("primerDigito").value);
-              var segundoDigito = parseInt(document.getElementById("segundoDigito").value);
-                suma= primerDigito+segundoDigito;
-                return suma;
-            }
-
- //--------------------------RESTA-----------------------------           
-function resta(primerDigito,segundoDigito){
-        	var primerDigito= parseInt(document.getElementById("primerDigito").value);
-              var segundoDigito = parseInt(document.getElementById("segundoDigito").value);
-                resta= primerDigito-segundoDigito;
-
-                return resta;
-            }
-
-//----------------------DIVISION---------------------------------            
-function division(primerDigito,segundoDigito){
-        	var primerDigito= parseInt(document.getElementById("primerDigito").value);
-              var segundoDigito = parseInt(document.getElementById("segundoDigito").value);
-                division= primerDigito/segundoDigito;
-                return division;
-            }
-//--------------------MULTIPLICACION ------------------------
-
- function multiplicacion(primerDigito,segundoDigito){
-        	var primerDigito= parseInt(document.getElementById("primerDigito").value);
-              var segundoDigito = parseInt(document.getElementById("segundoDigito").value);
-                multiplicacion= primerDigito*segundoDigito;
-                return multiplicacion;
-            }
-
-function comprobar (){
-			var primerDigito= parseInt(document.getElementById("primerDigito").value);
-              var segundoDigito = parseInt(document.getElementById("segundoDigito").value);
-              var misolucion = parseInt(document.getElementById("misolucion").value);
-              var operacion= document.getElementById("operacion").value
-
-      if(operacion=="+"){
-      	if(misolucion==(suma(primerDigito,segundoDigito))){
-
-         document.getElementById("corin").value = "CORRECTO";  
-
-      	}
-      	else {  document.getElementById("corin").value = ( "INCORRECTO EL RESULTADO ES: "+ suma);;  
-
-      	}
-      }
-
-      if(operacion=="-"){
-      	if(misolucion==resta(primerDigito,segundoDigito)){
-         document.getElementById("corin").value = "CORRECTO";  
-      	}
-      	else {document.getElementById("corin").value = ( "INCORRECTO EL RESULTADO ES: "+ resta);
-      	}
-      }
-
-      if(operacion=="*"){
-      	if(misolucion==multiplicacion(primerDigito,segundoDigito)){
-         document.getElementById("corin").value = "CORRECTO";  
-      	}
-      	else {document.getElementById("corin").value = ( "INCORRECTO EL RESULTADO ES: "+ multiplicacion);
-      	}
-      }
-
-      if(operacion=="/"){
-      	if(misolucion==division(primerDigito,segundoDigito)){
-         document.getElementById("corin").value = "CORRECTO";  
-      	}
-      	else {document.getElementById("corin").value =( "INCORRECTO EL RESULTADO ES: "+ division);
-      	}
-      }
-}
-
- function nuevaoperacion (){
-      
-
-      document.getElementById("primerDigito").value = "";  
-      document.getElementById("segundoDigito").value = ""; 
-      document.getElementById("operacion").value = "+";
-      document.getElementById("misolucion").value = "";  
-      document.getElementById("corin").value = "";  
-      }
-
-      
+              <input type="button" id="comprobar" value="Comprobar">
+              <input type="button" id="nuevaoperacion" value="Nueva operacion">
 
 
- </script> 
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+<script>
+
+  $("#comprobar").click(function(){
+
+// function comprobar
+     $("#correcto").text("");
+     $("#incorrecto").text("");
+    var $primerDigito = parseInt($("#primerDigito").val());
+    var $segundoDigito = parseInt($("#segundoDigito").val());
+    var $misolucion = parseInt($("#misolucion").val());
+    var $operacion = $("#operacion").val();
+    var resultop = 0;
+
+    //si es suma
+
+    if ($operacion == "+"){
+      resultop = $primerDigito+$segundoDigito;
+       if($misolucion== resultop) $("#correcto").text("Correcto!!");
+       else $("#incorrecto").text("Incorrecto!!");
+     }
+//resta
+        if ($operacion == "-"){
+      resultop = $primerDigito-$segundoDigito;
+       if($misolucion== resultop) $("#correcto").text("Correcto!!");
+       else $("#incorrecto").text("Incorrecto!!");
+     }
+
+//multiplicacion
+
+   if ($operacion == "*"){
+      resultop = $primerDigito*$segundoDigito;
+       if($misolucion== resultop) $("#correcto").text("Correcto!!");
+       else $("#incorrecto").text("Incorrecto!!");
+     }
+
+//division
+        if ($operacion == "/"){
+      resultop = $primerDigito/$segundoDigito;
+       if($misolucion== resultop) $("#correcto").text("Correcto!!");
+       else $("#incorrecto").text("Incorrecto!!");
+     }
+
+  })
+
+  $("#nuevaoperacion").click(function(){
+
+     $("#correcto").text("");
+     $("#incorrecto").text("");
+  $("#primerDigito").val("");   
+  $("#segundoDigito").val("");
+  $("#operacion").val("+");
+  $("#misolucion").val("");   
+  })
+  
+</script>
+
+
     </body>
 </html>
